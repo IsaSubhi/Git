@@ -30,6 +30,9 @@ jobs:
         run: |
           touch 1.txt
           ls -la
+          pwd
+      - uses: actions/chackout@v2
+      - run: ls -ala
   job-4:
     needs: [job-3]
     runs-on: ubuntu-latest
