@@ -1,4 +1,7 @@
 name: first_actions
+env: 
+  APP_NAME: "MyApp"
+  PACKAGE_NAME: "MyApp-version-${{ github.sha }}"
 on: 
   push: 
     branch:
@@ -27,4 +30,11 @@ jobs:
         run: |
           touch 1.txt
           ls -la
-    
+  job-4:
+    needs: [job-3]
+    runs-on: ubuntu-latest
+    steps: 
+      - name: print env
+        run: |
+          echo "My app name is :${{ env.APP_NAME }}"
+          echo "App package :${{ env.PACKAGE_NAME }}" 
