@@ -33,8 +33,14 @@ jobs:
   job-4:
     needs: [job-3]
     runs-on: ubuntu-latest
+    env: 
+      VAR1: "This is a job level Variable"
     steps: 
       - name: print env
         run: |
           echo "My app name is :${{ env.APP_NAME }}"
           echo "App package :${{ env.PACKAGE_NAME }}" 
+          echo "Var1 - ${{ env.VAR1 }}"
+          echo "local Variable: $LOCAL_VAR"
+        env:
+          LOCAL_VAR: "This is a local Variable"
