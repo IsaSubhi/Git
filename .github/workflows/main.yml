@@ -31,8 +31,8 @@ jobs:
           touch 1.txt
           ls -la
           pwd
-      - uses: actions/chackout@v2
-      - run: ls -ala
+      - uses: actions/checkout@v2
+      - run: ls -la
   job-4:
     needs: [job-3]
     runs-on: ubuntu-latest
